@@ -6,11 +6,11 @@
 
 
 * Coverage view Visual Studio 
-<img src="/img/scenario1.png" width="550" height="300">
+<img src="/img/scenario2.png" width="550" height="300">
 
 
 * Coverage view LivingDoc  
-<img src="/img/livingDoc1.png" width="550" height="300">
+<img src="/img/livingDoc2.png" width="550" height="300">
 
 
 * References
