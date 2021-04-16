@@ -35,3 +35,5 @@
 [Selenium C# Javascript](https://www.c-sharpcorner.com/article/execution-of-selenium-web-driver-using-c-sharp-javascript/)
 
 [SpecFlow structure long list examples](https://specflow.org/blog/solving-how-to-structure-a-long-list-of-examples-givenwhenthenwithstyle/)
+
+[SpecFlow Challenge](https://specflow.org/blog/the-given-when-then-with-style-challenge/)
