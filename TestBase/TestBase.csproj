@@ -33,7 +33,6 @@
   <ItemGroup>
     <Folder Include="Drivers\" />
     <Folder Include="PageObjects\Filter\" />
-    <Folder Include="PageObjects\Search\" />
   </ItemGroup>
 
 </Project>

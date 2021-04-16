@@ -96,7 +96,7 @@ namespace TestBase.Steps
         public void WhenClickInRegister()
         {
             _createUserPO.BtnRegister();
-          // Thread.Sleep(TimeSpan.FromSeconds(5));
+           Thread.Sleep(TimeSpan.FromSeconds(3));
         }
 
         [When(@"click in Create an Account")]
