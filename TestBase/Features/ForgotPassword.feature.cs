@@ -132,13 +132,14 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click in link Forgot your password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.And("I insert Email valid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I insert the registered email \"test_04@test.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.When("I click in retrieve password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.Then("a message success will be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("a message success \"A confirmation email has been sent to your address: test_04@te" +
+                        "st.com\" will be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -182,7 +183,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click in link Forgot your password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
- testRunner.And("I insert Email invalid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I insert the registered email \"test_04@test\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
  testRunner.When("I click in retrieve password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -232,7 +233,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click in link Forgot your password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 27
- testRunner.And("I insert Email invalid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I insert the registered email \"test_not_found@test.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
  testRunner.When("I click in retrieve password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

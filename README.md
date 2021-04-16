@@ -6,11 +6,11 @@
 
 
 * Coverage view Visual Studio 
-<img src="/img/scenario3.png" width="550" height="300">
+<img src="/img/scenario4.png" width="550" height="300">
 
 
 * Coverage view LivingDoc  
-<img src="/img/livingDoc3.png" width="550" height="300">
+<img src="/img/livingDoc4.png" width="550" height="300">
 
 ## [Tests evidences](https://gracetorresleite.github.io/SpeckFlowTestBase/LivingDoc/LivingDoc.html)
 
