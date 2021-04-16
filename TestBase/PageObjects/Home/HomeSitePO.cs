@@ -28,8 +28,7 @@ namespace TestBase.PageObjects.Home
 
         public void HomeSite()
         {
-            _driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
-            wait.ToWaitPage(5);
+            _driver.Navigate().GoToUrl("http://automationpractice.com/index.php");         
         }
 
         public bool IsHomePageVisible => _driver.FindElement(byHomeSite).Displayed;
@@ -37,7 +36,7 @@ namespace TestBase.PageObjects.Home
         public void BtnSignInLink()
         {
             _driver.FindElement(byLinkSignIn).Click();
-            wait.ToWaitPage(6);
+            wait.ToWaiTImplicit(6);
         }
 
         public void BtnSignOutLink()

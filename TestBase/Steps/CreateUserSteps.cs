@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Threading;
 using TechTalk.SpecFlow;
 using TestBase.Helpers;
 using TestBase.Hooks;
@@ -32,6 +33,7 @@ namespace TestBase.Steps
         public void GivenIClickOnTheSignInButtonToRegister()
         {
             _createUserPO.access.BtnSignInLink();
+            Thread.Sleep(5);
         }
 
         [Given(@"I insert valid e-mail")]
@@ -72,6 +74,7 @@ namespace TestBase.Steps
         public void GivenIInsertAnInvalidEmail()
         {
             _createUserPO.InputEmailForCreateUser("test_01@test");
+            Thread.Sleep(TimeSpan.FromSeconds(3));
         }
 
         [Given(@"I do not fill in all mandatory fields")]
@@ -93,12 +96,14 @@ namespace TestBase.Steps
         public void WhenClickInRegister()
         {
             _createUserPO.BtnRegister();
+          // Thread.Sleep(TimeSpan.FromSeconds(5));
         }
 
         [When(@"click in Create an Account")]
         public void WhenClickInCreateAnAccount()
         {
             _createUserPO.BtnCreateAccount();
+          // Thread.Sleep(TimeSpan.FromSeconds(3));
         }
 
         [Then(@"I will be directed to my profile")]

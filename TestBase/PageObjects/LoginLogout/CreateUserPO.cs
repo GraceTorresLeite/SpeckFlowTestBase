@@ -72,6 +72,7 @@ namespace TestBase.PageObjects.LoginLogout
         public void InputEmailForCreateUser(string email)
         {
             _driver.FindElement(byInputEmail).SendKeys(email);
+           
         }
 
         public void BtnCreateAccount()
@@ -81,8 +82,7 @@ namespace TestBase.PageObjects.LoginLogout
 
         public void BtnRegister()
         {
-            _driver.FindElement(byBtnRegister).Submit();
-            wait.ToWaiTImplicit(4);
+            _driver.FindElement(byBtnRegister).Submit();          
         }
 
         public void ToFillForm(
