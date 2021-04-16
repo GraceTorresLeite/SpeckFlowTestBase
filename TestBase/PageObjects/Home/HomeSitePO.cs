@@ -45,10 +45,16 @@ namespace TestBase.PageObjects.Home
             wait.ToWaitPage(5);
         }
 
-        public int CountString(string text, int startIndex, int length)
+        public int ToCountSbstring(string text, int startIndex, int length)
         {
             String number = text;
             return int.Parse(number.Substring(startIndex, length));
+        }
+
+        public string ToSubstring(string text, int startIndex, int length)
+        {
+            String substring = text;
+            return substring.Substring(startIndex, length);
         }
 
         public bool IsPageMyAccountVisible
