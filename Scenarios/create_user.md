@@ -1,51 +1,69 @@
-# 1- Feature: CreateUser
+# 2 - Feature: CreateUser
 
 ## Story: 
-	As a new customer 
 
-	I would like to access the Sign in page
+	As a new customer
 
-    	So be able to register at the online store.
+	I want to register
 
-### Scenario 1: Created user successfully
+	To have a profile linked to the site
 
-	Given that I dont have register user
 
-	And I click on the Sign In button
+### Scenario: Created user successfully
 
-	When insert valid e-mail
+	Given  that I type the URL in my browser
+
+	And I click on the Sign In button to register
+
+	And I insert valid e-mail
 
 	And click in Create an Account
 
-	When insert all required data
-
-	And click in Register
-
-	Then I will be directed to My account profile with my full name signed to the right of the navbar
-
-
-### Scenario 2: Error - Create an account with an existing email
-
-	Given I inserted an <Email_Exists> already registered
-
-	When click in Create an Account
-
-	Then a  message error will be displayed 
-
-
-###  Scenario 3: Error - Create an account with an invalid email
-
-       Given I inserted an <Email_Invalid> already registered
-
-       When click in Create an Account
-
-       Then a  message error will be displayed 
-
-
-###  Scenario 4: Error - invalid mandatory fields
-
-	Given I fill in an invalid mandatory field
+	And I fill in all mandatory fields
 
 	When click in Register
 
-	Then a alert error will be displayed
+	Then I will be directed to my profile
+
+
+### Scenario: Error - Create an account with an existing email
+
+	Given  that I type the URL in my browser
+
+	And I click on the Sign In button to register
+
+	And I insert an email already registered
+
+	When click in Create an Account
+
+	Then a message error will be displayed 
+
+
+### Scenario: Error - Create an account with an invalid email
+
+	Given  that I type the URL in my browser
+
+	And I click on the Sign In button to register
+
+	And I insert an invalid email 
+
+	When click in Create an Account
+
+	Then a message error will be displayed 
+
+
+### Scenario: Error - invalid mandatory fields
+
+	Given  that I type the URL in my browser
+
+	And I click on the Sign In button to register
+
+	And I insert valid e-mail
+
+	And click in Create an Account
+
+	And I do not fill in all mandatory fields
+
+	When click in Register	
+
+	Then a message error will be displayed with the missing data
