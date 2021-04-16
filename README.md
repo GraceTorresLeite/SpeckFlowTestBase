@@ -11,6 +11,7 @@
 
 * Coverage view LivingDoc  
 <img src="/img/livingDoc1.png" width="550" height="300">
+
 ## [Tests evidences](https://gracetorresleite.github.io/SpeckFlowTestBase/LivingDoc/LivingDoc.html)
 
 
