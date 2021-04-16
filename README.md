@@ -6,11 +6,11 @@
 
 
 * Coverage view Visual Studio 
-<img src="/img/scenario1.png" width="700" height="400">
+<img src="/img/scenario1.png" width="550" height="300">
 
 
-* Coverage view LivingDoc  - **after** use plugins Spex / Azure DevOps Test Connector
-<img src="/img/livingDoc1.png" width="700" height="400">
+* Coverage view LivingDoc  
+<img src="/img/livingDoc1.png" width="550" height="300">
 
 
 * References
