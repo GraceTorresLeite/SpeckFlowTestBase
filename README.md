@@ -2,7 +2,7 @@
 
 ## [User history](/doc)
 
-* [Exercise](http://automationpractice.com/index.php)
+* [Exercise Website](http://automationpractice.com/index.php)
 
 
 * Coverage view Visual Studio 
@@ -11,6 +11,7 @@
 
 * Coverage view LivingDoc  
 <img src="/img/livingDoc1.png" width="550" height="300">
+## [Tests evidences](https://gracetorresleite.github.io/SpeckFlowTestBase/LivingDoc/LivingDoc.html)
 
 
 * References
@@ -24,3 +25,13 @@
 [Assert Members](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2008/ms245282(v=vs.90))
 
 [LivinDoc](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/sbsguides/sbscli.html)
+
+[LivinDoc Keys](https://docs.specflow.org/projects/specflow/en/latest/Gherkin/Gherkin-Reference.html)
+
+[LivinDoc Image](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/Generating/Markdown-and-Embedding-Images.html)
+
+[LivinDoc Azure Devops](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/Installation/Installation.html)
+
+[Selenium C# Javascript](https://www.c-sharpcorner.com/article/execution-of-selenium-web-driver-using-c-sharp-javascript/)
+
+[SpecFlow structure long list examples](https://specflow.org/blog/solving-how-to-structure-a-long-list-of-examples-givenwhenthenwithstyle/)
