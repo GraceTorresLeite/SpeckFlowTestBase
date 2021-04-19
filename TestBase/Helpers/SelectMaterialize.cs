@@ -28,6 +28,13 @@ namespace TestBase.Helpers
             selectWrapper = driver.FindElement(locatorWrapper);
             options = selectWrapper.FindElements(By.CssSelector("li>span"));
         }
+        public SelectMaterialize(IWebDriver driver, By locatorWrapper , string locatorLi)
+        {
+            _driver = driver;
+            driver = WebHooks.Driver;
+            selectWrapper = driver.FindElement(locatorWrapper);
+            options = selectWrapper.FindElements(By.CssSelector(locatorLi));
+        }
 
         public IEnumerable<IWebElement> Options => options;
 
@@ -45,5 +52,15 @@ namespace TestBase.Helpers
                 .First()
                 .Click();
         }
+
+        public void SelectByTextMenu(string option)
+        {         
+            options
+                .Where(o => o.Text.Contains(option))
+                .ToList()
+                .First()
+                .Click();
+        }
+
     }
 }
