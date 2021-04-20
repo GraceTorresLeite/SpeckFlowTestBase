@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
 using TestBase.Helpers;
@@ -12,7 +13,8 @@ namespace TestBase.PageObjects.Search
         private IWebDriver _driver;
         public HomeSitePO access;
         public Alerts alert;
-        private WaitLoads wait;
+        private WaitLoads waitLoads;
+        public WebDriverWait _waitDriver;
 
         private By byBtnSearch;
         private By byInputWordSearch;
@@ -25,7 +27,7 @@ namespace TestBase.PageObjects.Search
             _driver = WebHooks.Driver;
             access = new HomeSitePO();
             alert = new Alerts();
-            wait = new WaitLoads();
+            waitLoads = new WaitLoads();
 
             byBtnSearch = By.Name("submit_search");
             byInputWordSearch = By.Id("search_query_top");
@@ -46,7 +48,7 @@ namespace TestBase.PageObjects.Search
         public void BtnSearch()
         {
             _driver.FindElement(byBtnSearch).Submit();
-            wait.ToWaitPage(5);
+            waitLoads.ToWaitPage(5);
         }
 
         public bool IsUrl(string url)
@@ -60,7 +62,11 @@ namespace TestBase.PageObjects.Search
             var valueField = _driver.FindElement(byInputWordSearch);
             valueField.Clear();
             valueField.SendKeys(name);
-            wait.ToWaitElement(5, byActionResult);
+            waitLoads.ToWaitElement(5, byActionResult);
+
+           // _waitDriver = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+           // _waitDriver.Until(ExpectedConditions.ElementToBeClickable(By.Id("id"))).Click();
+
             _driver.FindElement(byActionSelectFirstLineListResultsSearch).Click();
             Thread.Sleep(TimeSpan.FromSeconds(5));
         }
@@ -77,4 +83,5 @@ namespace TestBase.PageObjects.Search
             throw new NotFoundException($"Element with title {text} was not found");
         }
     }
+
 }
