@@ -1,60 +1,54 @@
-# 4- Funcionalidade: Busca(EXERCÍCIO 3)
+# 5 - Feature: Search
 
-## Estória: 
- Dado que sou cliente do gênero feminino em busca de um novo look,
-ao passar o mouse  na      modalidade “Women” visualizo algumas categorias 
-e suas promoções 
+## Story:
 
+	As a person
+ 
+	I want to be able to type a search
+ 
+	To find specific items
+ 
 
-### Critérios de Aceite 1: Busca digitada - com sucesso por itens catalogados por categoria
+### Scenario: Search - Successfully
 
-**Dado**     que  desejo comprar uma blusa,  digito no campo de pesquisa  a palavra “blouses”
+	Given  that I type the URL in my browser
+ 
+	And I insert word "blouses" in the search field
+ 
+	When And click on the search button
+ 
+	Then results will be displayed "1 result has been found."
+ 
 
-**Quando**   clicar na lupa
+### Scenario: Search - Successfully related items
 
-**Então**    serei direcionada a uma tela que me fornecerá uma lista de ítens disponíveis
+	Given  that I type the URL in my browser
+ 
+	And I insert word "shoes" in the search field
+ 
+	When And click on the search button
+ 
+	Then results will be displayed "7 results have been found."
+ 
 
+### Scenario: Search - select item from the list of suggestions after 3 letters typed
 
-### Critérios de Aceite 2: Busca digitada - com sucesso por ofertas
+	Given  that I type the URL in my browser
+ 
+	And I insert word "dre" in the search field
+ 
+	When click on the first item in the list
+ 
+	Then  I will have the visibility of the chosen product "http://automationpractice.com/index.php?id_product=5&controller=product"
+ 
 
-**Dado**     que  desejo aproveitar liquidações anunciadas,  digito no campo de pesquisa  a palavra “offers”
+### Scenario: Search - not found
 
-**Quando**   clicar na lupa
-
-**Então**    serei direcionada a uma tela que me fornecerá uma lista de ítens com e sem descontos em destaque
-
-
-### Critérios de Aceite 3: Busca digitada -  sem  as expectativas atendidas pelo usuário
-
-**Dado**     que  estimulada a chamada de promoção de sapatos  digito no campo de pesquisa  a palavra “shoes”
-
-**Quando**   clicar na lupa
-
-**Então**    serei direcionada a uma tela com vários ítens exceto sapatos
-
-
-### Critérios de Aceite 4: Busca digitada - não localizada
-
-**Dado**     que sou uma cliente em busca de acessórios femininos
-
-**Quando**   quando digitar “accessory” 
-
-**Então**    uma mensagem de texto será exibida “No results were found for your search "accessory"”
-
-
-### Critérios de Aceite 5: Busca digitada - esperando uma lista de opções com sucesso
-
-**Dado**     que sou uma cliente em busca de sugestões de seleção como ponto de partida na navegação em busca de um ítem que me chame a atenção
-
-**Quando**   quando digitar no campo de busca as inicias com o mínimo de 3 letras de um item catalogado
-
-**Então**    uma lista de opções serão disponibilizadas para seleção no campo de busca
-
-
-### Critérios de Aceite 6: Busca digitada - sem sucesso por descontos
-
-**Dado**     que  ao consultar uma categoria visualizei a possibilidade de visualizar os descontos através do título “Price Drop”
-
-**Quando**   clicar na lupa com a palavra “Price Drop” digitada
-
-**Então**    surgirá uma mensagem na tela “No results were found for your search “”Price Drop”
+	Given  that I type the URL in my browser
+ 
+	And I insert word "accessory" in the search field
+ 
+	When And click on the search button
+ 
+	Then the alert warning "No results were found for your search" will be visible
+ 
