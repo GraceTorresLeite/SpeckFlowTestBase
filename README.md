@@ -12,6 +12,10 @@
 * Coverage view LivingDoc  
 <img src="/img/livingDoc5.png" width="550" height="300">
 
+
+* View Mobile  
+<img src="/img/mobile.png" width="250" height="500">
+
 ## [Tests evidences](https://gracetorresleite.github.io/SpeckFlowTestBase/LivingDoc/LivingDoc.html)
 
 

@@ -38,9 +38,11 @@ namespace TestBase.PageObjects.Filter
         private By byMenuMobile;
         private By byMobileCatTitle;
         private By byMobileCategory;
+        private By byMobileClassGrover;
         private By byMobileTitle;
 
- 
+
+
         public FiltersPO()
         {          
             _driver = WebHooks.Driver;
@@ -76,8 +78,9 @@ namespace TestBase.PageObjects.Filter
 
             byMenuMobile = By.ClassName("cat-title active");
             byMobileCatTitle = By.ClassName("cat-title");
-            byMobileTitle = By.XPath("//*[@id='categories_block_left']/h2");
+            byMobileClassGrover = By.ClassName("menu-mobile-grover");
             byMobileCategory = By.XPath("//*[@id='block_top_menu']/ul/li[1]/a");
+            byMobileTitle = By.XPath("//*[@id='categories_block_left']/h2/text()");
 
         }
 
@@ -90,7 +93,7 @@ namespace TestBase.PageObjects.Filter
         public void ToFilterSubcategories()
         {
             _driver.FindElement(bySubCategories).Click();
-            wait.ToWaitPage(3);
+            //Thread.Sleep(TimeSpan.FromSeconds(3));
         }
 
         public void IsViewList()
@@ -153,6 +156,15 @@ namespace TestBase.PageObjects.Filter
         {
             get
             {
+                var elementMobile = _driver.FindElement(byMobileClassGrover);
+                return elementMobile.Displayed;
+            }
+        }
+
+        public bool ToMobilecategories
+        {
+            get
+            {
                 string title = "Women";
                 var elementMobileText = _driver.FindElement(byMobileTitle).Text;
                 var elementMobile = _driver.FindElement(byMobileTitle);
@@ -162,7 +174,6 @@ namespace TestBase.PageObjects.Filter
                     return elementMobile.Displayed;
                 }
                 throw new NotFoundException($"Element with title {title} was not found");
-                
             }
         }
         #endregion

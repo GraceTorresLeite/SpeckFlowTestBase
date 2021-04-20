@@ -50,12 +50,14 @@ namespace TestBase.Steps
         public void WhenIClickOnTheOptionSubcategory()
         {
             _filtersPO.ToFilterSubcategories();
+            Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
         [Then(@"I click on the option subcategory")]
         public void GivenIClickOnTheOptionSubcategory()
         {
             _filtersPO.ToFilterSubcategories();
+            Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
         [When(@"I click on the option view")]
@@ -131,7 +133,7 @@ namespace TestBase.Steps
         [Then(@"the page mobile be displayed")]
         public void ThenThePageMobileBeDisplayed()
         {
-            bool isTitle = _filtersMobilePO.ToMobile360x640;
+            bool isTitle = _filtersMobilePO.ToMobilecategories;
             Assert.IsTrue(isTitle);
         }
 
