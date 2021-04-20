@@ -9,7 +9,7 @@ namespace TestBase.Helpers
     public class Alerts
     {
         private IWebDriver _driver;
-        private By byAlertSuccess;
+        
         private By byAlertError;
         private By byAlertWarning;
 
@@ -23,7 +23,7 @@ namespace TestBase.Helpers
         public Alerts()
         {
             _driver = WebHooks.Driver;
-            byAlertSuccess = By.CssSelector("");
+            
             byAlertError = By.ClassName("alert-danger");
             byAlertWarning = By.ClassName("alert-warning");
 

@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -22,7 +21,7 @@ namespace TestBase.Steps
         public FiltersPO _filtersMobilePO;
         private WebDriverWait _waitDriver;
         private WaitLoads _wait;
-        private HttpClient httpClient;
+        
 
         public FiltersSteps(ScenarioContext scenarioContext)
         {
@@ -31,7 +30,7 @@ namespace TestBase.Steps
             _filtersPO = new FiltersPO();
             _filtersMobilePO = new FiltersPO(_driver);
             _wait = new WaitLoads();
-            httpClient = new HttpClient();
+            
         }
 
         [When(@"I click on the option category")]
@@ -99,8 +98,6 @@ namespace TestBase.Steps
             bool forbiden = _waitDriver.Until(drv => _filtersPO.IsPageBoxDisplayed());
             Assert.IsTrue(forbiden);
         }
-
-
 
         [Given(@"that I type the URL in my browser mobile")]
         public void GivenThatITypeTheURLInMyBrowserMobile()

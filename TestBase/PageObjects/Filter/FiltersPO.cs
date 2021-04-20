@@ -1,16 +1,12 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Net.Http;
 using TestBase.Helpers;
 using TestBase.Hooks;
 using TestBase.PageObjects.Home;
-using OpenQA.Selenium.Remote;
 
 namespace TestBase.PageObjects.Filter
 {
@@ -25,7 +21,6 @@ namespace TestBase.PageObjects.Filter
 
         private By byMenuCategories;
         private By bySubCategories;
-        private By bySelectLine;
 
         private By byViewGrid;
         private By byViewList;
@@ -35,7 +30,6 @@ namespace TestBase.PageObjects.Filter
         private By byBox;
         private By byStatus;
 
-        private By byMenuMobile;
         private By byMobileCatTitle;
         private By byMobileCategory;
         private By byMobileClassGrover;
@@ -54,8 +48,6 @@ namespace TestBase.PageObjects.Filter
             byMenuCategories = By.CssSelector("#block_top_menu > ul > li:nth-child(1) > a");
 
             bySubCategories = By.CssSelector("#subcategories > ul > li:nth-child(1) > h5 > a");
-
-            bySelectLine = By.CssSelector("ul>li>a");
 
             byViewGrid = By.Id("grid");
             byViewList = By.Id("list");
@@ -76,11 +68,10 @@ namespace TestBase.PageObjects.Filter
             alert = new Alerts();
             wait = new WaitLoads();
 
-            byMenuMobile = By.ClassName("cat-title active");
             byMobileCatTitle = By.ClassName("cat-title");
             byMobileClassGrover = By.ClassName("menu-mobile-grover");
-            byMobileCategory = By.XPath("//*[@id='block_top_menu']/ul/li[1]/a");
-            byMobileTitle = By.XPath("//*[@id='categories_block_left']/h2/text()");
+            byMobileCategory = By.XPath("//*[@id='block_top_menu']/ul/li[1]/a");           
+            byMobileTitle = By.CssSelector("#categories_block_left > h2");
 
         }
 
