@@ -45,9 +45,9 @@ Scenario: Select menu categories in mobile Galaxy S5
 	When  I click on more categories options 
 	Then view mobile will be displayed
 
-@ignore
+
 Scenario: Select category in mobile Galaxy S5
 	Given  that I type the URL in my browser mobile
 	When  I click on more categories options 
 	And  I click on the category Woman
-	Then the page mobile "http://automationpractice.com/index.php?id_category=3&controller=category" will be displayed
+	Then the page mobile be displayed

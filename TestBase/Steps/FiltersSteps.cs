@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -93,7 +94,8 @@ namespace TestBase.Steps
         public void ThenALoadingErrorOccurs()
         {
             _waitDriver = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
-            _waitDriver.Until(drv => _filtersPO.LT_Broken_Links_Test());           
+            bool forbiden = _waitDriver.Until(drv => _filtersPO.IsPageBoxDisplayed());
+            Assert.IsTrue(forbiden);
         }
 
 
@@ -118,6 +120,19 @@ namespace TestBase.Steps
         {
             bool ismobile = _filtersMobilePO.ToMobile360x640;
             Assert.IsTrue(ismobile);
+        }
+
+        [When(@"I click on the category Woman")]
+        public void WhenIClickOnTheCategoryWoman()
+        {
+            _filtersMobilePO.ClickCategoriesListMobile();
+        }
+
+        [Then(@"the page mobile be displayed")]
+        public void ThenThePageMobileBeDisplayed()
+        {
+            bool isTitle = _filtersMobilePO.ToMobile360x640;
+            Assert.IsTrue(isTitle);
         }
 
     }

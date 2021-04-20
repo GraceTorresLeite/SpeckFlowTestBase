@@ -10,13 +10,14 @@ using System.Net.Http;
 using TestBase.Helpers;
 using TestBase.Hooks;
 using TestBase.PageObjects.Home;
+using OpenQA.Selenium.Remote;
 
 namespace TestBase.PageObjects.Filter
 {
     public class FiltersPO
     {
         private IWebDriver _driver;
-       // public IWebDriver driver;
+     
         public HomeSitePO access;
         public SelectMaterialize selects;
         public Alerts alert;
@@ -32,18 +33,21 @@ namespace TestBase.PageObjects.Filter
         private By bySort;
 
         private By byBox;
+        private By byStatus;
 
         private By byMenuMobile;
         private By byMobileCatTitle;
         private By byMobileCategory;
-        private By byMobileClassGrover;
+        private By byMobileTitle;
+
+ 
         public FiltersPO()
         {          
             _driver = WebHooks.Driver;
-           // driver = MobileHooks.Driver;
             access = new HomeSitePO();
             alert = new Alerts();
             wait = new WaitLoads();
+
 
             byMenuCategories = By.CssSelector("#block_top_menu > ul > li:nth-child(1) > a");
 
@@ -57,13 +61,8 @@ namespace TestBase.PageObjects.Filter
             bySort = By.Id("selectProductSort");
 
             byBox = By.Id("layered_category_4");
-           // byMenuMobile = By.ClassName("cat-title active");
-           // byMobileCatTitle = By.ClassName("cat-title");
-           // byMobileClassGrover = By.ClassName("menu-mobile-grover");
-           // byMobileCategory = By.CssSelector("//*[@id='block_top_menu']/ul/li[1]/a");
-            // byMobileCategory = By.CssSelector("# block_top_menu > ul > li:nth-child(1) > a");
-            //*[@id="block_top_menu"]/ul/li[1]/a
-            //*[@id="block_top_menu"]/ul/li[1]/a
+            byStatus = By.CssSelector("#ul_layered_category_0 > li:nth-child(1) > label > a");
+         
         }
 
         public FiltersPO(IWebDriver driver)
@@ -77,9 +76,9 @@ namespace TestBase.PageObjects.Filter
 
             byMenuMobile = By.ClassName("cat-title active");
             byMobileCatTitle = By.ClassName("cat-title");
-            byMobileClassGrover = By.ClassName("menu-mobile-grover");
-            byMobileCategory = By.CssSelector("//*[@id='block_top_menu']/ul/li[1]/a");
-           
+            byMobileTitle = By.XPath("//*[@id='categories_block_left']/h2");
+            byMobileCategory = By.XPath("//*[@id='block_top_menu']/ul/li[1]/a");
+
         }
 
         public void ToFilterMenuCategories()
@@ -145,7 +144,8 @@ namespace TestBase.PageObjects.Filter
         public void ClickCategoriesListMobile()
         {
             _driver.Navigate().GoToUrl("http://automationpractice.com/index.php");        
-            _driver.FindElement(byMobileCatTitle).Click();        
+            _driver.FindElement(byMobileCatTitle).Click();
+            wait.ToWaitPage(6);
             _driver.FindElement(byMobileCategory).Click();
         }
 
@@ -153,8 +153,16 @@ namespace TestBase.PageObjects.Filter
         {
             get
             {
-                var elementMobile = _driver.FindElement(byMobileClassGrover);
-                return elementMobile.Displayed;
+                string title = "Women";
+                var elementMobileText = _driver.FindElement(byMobileTitle).Text;
+                var elementMobile = _driver.FindElement(byMobileTitle);
+
+                if (elementMobileText.Equals(title, StringComparison.OrdinalIgnoreCase))
+                {
+                    return elementMobile.Displayed;
+                }
+                throw new NotFoundException($"Element with title {title} was not found");
+                
             }
         }
         #endregion
@@ -162,45 +170,10 @@ namespace TestBase.PageObjects.Filter
         {
             _driver.FindElement(byBox).Click();
         }
-        public async Task LT_Broken_Links_Test()
+
+        public bool IsPageBoxDisplayed()
         {
-            using var client = new HttpClient();
-
-            int valid_links = 0;
-            int broken_links = 0;
-            var links = _driver.FindElements(By.TagName("a"));
-            foreach (var link in links)
-            {
-                if (!(link.Text.Contains("http://automationpractice.com/"))||(link.Text == "") || link.Text.Equals(null))
-                {
-                   
-
-                    try
-                    {
-
-                        HttpResponseMessage response = await client.GetAsync(link.GetAttribute("href"));
-                        Console.WriteLine($"URL: {link.GetAttribute("href")} status is: {response.StatusCode}");
-                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                        {
-                            valid_links++;
-                        }
-                        else 
-                        {
-                            broken_links++;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-
-                        if ((ex is ArgumentNullException) || (ex is NotSupportedException))
-                        {
-                            Console.WriteLine("Execption occured\n");
-                        }
-                    }
-                }
-            }
-            Thread.Sleep(2000);
-            Console.WriteLine("Detection of broken links completed with " + broken_links + "broken links and " + valid_links + "valid links." );
+            return _driver.FindElement(byStatus).Displayed;
         }
     }
 }
