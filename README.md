@@ -14,7 +14,7 @@
 
 
 * View Mobile  
-<img src="/img/mobile.png" width="250" height="500">
+<img src="/img/mobile.png" width="250" height="300">
 
 ## [Tests evidences](https://gracetorresleite.github.io/SpeckFlowTestBase/LivingDoc/LivingDoc.html)
 
